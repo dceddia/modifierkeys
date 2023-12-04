@@ -5,10 +5,10 @@ mod mac;
 pub use mac::read_modifier_keys;
 
 #[cfg(target_os = "windows")]
-mod windows;
+mod win;
 
 #[cfg(target_os = "windows")]
-pub use windows::read_modifier_keys;
+pub use win::read_modifier_keys;
 
 #[derive(Debug)]
 pub struct ModifierKeys {

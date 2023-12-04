@@ -1,9 +1,9 @@
 use cc::Build;
 
 fn main() {
-    let mut build = Build::new();
+    if cfg!(target_os = "macos") {
+        Build::new().file("src/mac.c").compile("modifierkeys");
 
-    build.file("src/mac.c").compile("modifierkeys");
-
-    println!("cargo:rustc-link-lib=static={}", "modifierkeys");
+        println!("cargo:rustc-link-lib=static={}", "modifierkeys");
+    }
 }
